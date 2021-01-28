@@ -9,6 +9,7 @@ import scraper.api.node.type.FunctionalNode;
 import scraper.api.template.L;
 import scraper.api.template.T;
 
+/** Custom class extract node */
 @NodePlugin(value = "0.0.1", deprecated = true)
 public class TestRecExtractNode implements FunctionalNode {
 
