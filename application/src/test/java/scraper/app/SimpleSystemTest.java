@@ -129,4 +129,12 @@ public class SimpleSystemTest {
         assertTrue(ff.exists());
         Scraper.main(new String[]{ff.getAbsolutePath()});
     }
+
+    @Test
+    public void noNodeTest() throws Exception {
+        URL f = Scraper.class.getResource("nonode.yf");
+        File ff = new File(f.toURI());
+        assertTrue(ff.exists());
+        Scraper.main(new String[]{ff.getAbsolutePath()});
+    }
 }

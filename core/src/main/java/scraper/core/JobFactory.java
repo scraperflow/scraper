@@ -186,7 +186,9 @@ public class JobFactory {
             int i = 0;
 
             for (Map<String, Object> nodeConfiguration : graph) {
-                String nodeType = (String) nodeConfiguration.get("type");
+                String beforeNodeType = (String) nodeConfiguration.get("type");
+                if (!beforeNodeType.endsWith("Node")) beforeNodeType = beforeNodeType + "Node";
+                String nodeType = beforeNodeType;
                 String nodeAddress = (String) nodeConfiguration.get("label");
 
                 String vers = jobNodeDependencies
@@ -198,6 +200,7 @@ public class JobFactory {
                         .stream()
                         .filter(p -> p.supports(nodeType, vers))
                         .collect(Collectors.toList());
+
                 Node n = getHighestMatchingPlugin(processPlugins, nodeType, vers);
 
                 NodeContainer<? extends Node> nn = getMatchingNodeContainer(
