@@ -35,4 +35,4 @@ distributions.main {
 distZip.destinationDirectory = project.file('../build')
 
 def homePath = System.properties['user.home']
-installDist.destinationDir = new File(homePath, "opt/scraper")
+installDist.destinationDir = new File(homePath, "opt/lib/scraper")

@@ -186,9 +186,7 @@ public class JobFactory {
             int i = 0;
 
             for (Map<String, Object> nodeConfiguration : graph) {
-                String beforeNodeType = (String) nodeConfiguration.get("type");
-                if (!beforeNodeType.endsWith("Node")) beforeNodeType = beforeNodeType + "Node";
-                String nodeType = beforeNodeType;
+                String nodeType = (String) nodeConfiguration.get("type");
                 String nodeAddress = (String) nodeConfiguration.get("label");
 
                 String vers = jobNodeDependencies

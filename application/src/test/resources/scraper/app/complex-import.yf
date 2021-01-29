@@ -12,6 +12,6 @@ globalNodeConfigurations:
 
 graphs:
   test:
-    - type: NoNode
+    - type: No
       log: "hello"
       goTo: top.test2

@@ -22,6 +22,6 @@ public class DateNodeTest {
         Map<?,?> nodeInput = Map.of("dateFormat", min);
         Map<?,?> flowInput = Map.of();
         Map<?,?> flowOutput = Map.of("date", date);
-        runWith(DateNode.class, List.of(nodeInput, flowInput, flowOutput));
+        runWith(Date .class, List.of(nodeInput, flowInput, flowOutput));
     }
 }
