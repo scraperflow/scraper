@@ -10,7 +10,7 @@ globalNodeConfigurations:
 
 graphs:
   start:
-    - type: No
+    - type: "No"
       log: "what"
       goTo: imp.test
 
