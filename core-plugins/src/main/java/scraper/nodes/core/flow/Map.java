@@ -21,7 +21,7 @@ import java.util.Optional;
  * Does not wait or join the forked flows.
  * The element is saved to <var>putElement</var>
  */
-@NodePlugin("0.5.0")
+@NodePlugin(value = "0.5.0", customFlowAfter = true)
 public final class Map <K> implements Node {
 
     /** The expected list is located to fork on */

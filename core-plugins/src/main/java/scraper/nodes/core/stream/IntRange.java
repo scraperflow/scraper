@@ -9,7 +9,6 @@ import scraper.api.node.container.StreamNodeContainer;
 import scraper.api.node.type.StreamNode;
 import scraper.api.template.L;
 
-import java.util.List;
 import java.util.stream.IntStream;
 
 /**

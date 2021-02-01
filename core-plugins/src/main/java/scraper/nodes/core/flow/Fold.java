@@ -32,7 +32,7 @@ import java.util.List;
  * result: acc
  * </pre>
  */
-@NodePlugin("0.2.0")
+@NodePlugin(value = "0.2.0", customFlowAfter = true)
 public final class Fold <A,B> implements Node {
 
     /** Label of fold target */

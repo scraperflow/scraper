@@ -14,7 +14,7 @@ import scraper.api.template.T;
 /**
  * Provides if-then-else routing
  */
-@NodePlugin("0.1.0")
+@NodePlugin(value = "0.1.0", customFlowAfter = true)
 public final class IfThenElse implements Node {
 
     /** Boolean condition*/

@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Redirects flow depending on string evaluation
  */
-@NodePlugin("0.0.1")
+@NodePlugin(value = "0.0.1", customFlowAfter = true)
 public final class Redirect implements Node {
 
     /** Hostname to target label mapping, if any */

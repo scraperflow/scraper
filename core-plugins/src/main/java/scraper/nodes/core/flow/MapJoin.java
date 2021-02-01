@@ -32,7 +32,7 @@ import java.util.concurrent.ExecutionException;
  * ignoreMissingJoinKey: true
  * </pre>
  */
-@NodePlugin("0.13.0")
+@NodePlugin(value = "0.13.0", customFlowAfter = true)
 public final class MapJoin <A> implements Node {
 
     /** Expected join for each key defined in this map after a forked flow terminates */

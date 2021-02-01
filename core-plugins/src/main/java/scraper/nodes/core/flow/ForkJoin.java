@@ -36,7 +36,7 @@ import java.util.concurrent.ExecutionException;
  *     package: package
  * </pre>
  */
-@NodePlugin("0.5.0")
+@NodePlugin(value = "0.5.0", customFlowAfter = true)
 public final class ForkJoin implements Node {
 
     /** Expected join for each target (for every key) defined in this map after a forked flow terminates */

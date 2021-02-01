@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Pipe to nodes and continue with sequential result
  */
-@NodePlugin("1.0.0")
+@NodePlugin(value = "1.0.0", customFlowAfter = true)
 public final class Pipe implements Node {
 
     /** List of addresses */

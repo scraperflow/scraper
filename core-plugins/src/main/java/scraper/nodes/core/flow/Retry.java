@@ -16,7 +16,7 @@ import static scraper.api.node.container.NodeLogLevel.*;
 /**
  * Provides a try-catch mechanism
  */
-@NodePlugin("0.3.0")
+@NodePlugin(value = "0.3.0", customFlowAfter = true)
 public final class Retry implements Node {
 
     /** How many times the flow is retried */

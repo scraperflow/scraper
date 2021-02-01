@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
  * </p>
  * Example:
  * <pre>
- * type: RegexNode
+ * type: Regex
  * regex: "((.*?\\/)(\\w*)\\.java)"
  * groups:
  *   path: 1
