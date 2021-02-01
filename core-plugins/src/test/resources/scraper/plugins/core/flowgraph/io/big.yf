@@ -3,31 +3,31 @@ name: linear
 
 graphs:
   start:
-    - type: IoNode
+    - type: Io
       input: "T_STRING"
       output: "generated"
 
   page-extract:
-    - type: PipeNode
+    - type: Pipe
       pipeTargets:
         - fetch-dashboard
         - dashboard-to-gids
 
   fetch-dashboard:
-    - type: RetryNode
+    - type: Retry
       retry: 50
       retryTarget: get-main-http
 
   get-main-http:
-    - type: IoNode
+    - type: Io
       input: "{generated}"
       output: "response"
 
   dashboard-to-gids:
-    - type: IoNode
+    - type: Io
       input: "{response}"
 
-#    - type: RegexNode
+#    - type: Regex
 #      content: "{response}"
 #      collect: true
 #      # this regex does not work at the earliest pages, the page structure changes?!?!
@@ -39,7 +39,7 @@ graphs:
 #        mid: 3
 #        format: 4
 #
-#    - type: MapNode
+#    - type: Map
 #      list: "{output}"
 #      mapTarget: gallery-extract
 #      service: d-gallery
@@ -47,10 +47,10 @@ graphs:
 #
 #
 #  gallery-extract:
-#    - type: EchoNode
+#    - type: Echo
 #      puts:
 #        gid: "{{element}@gid}"
-#    - type: ForkNode
+#    - type: Fork
 #      forkTargets:
 #        - download-thumbs
 #        - download-metadata
@@ -59,19 +59,19 @@ graphs:
 #
 #
 #  download-thumbs:
-#    - type: FileExistsNode
+#    - type: FileExists
 #      path: "/srv/archive/nhentai/thumbnails/{{element}@gid}.{{element}@format}"
-#    - type: IfThenElseNode
+#    - type: IfThenElse
 #      condition: "{exists}"
 #      falseTarget: download-thumbs-new
 #
 #  download-thumbs-new:
-#    - type: RetryNode
+#    - type: Retry
 #      retry: 550
 #      retryTarget: download-thumb-http
 #
 #  download-thumb-http:
-#    - type: HttpRequestNode
+#    - type: HttpRequest
 #      url: "{{element}@tUrl}"
 #      put: thumbContent
 #      expectedResponse: FILE
@@ -79,29 +79,29 @@ graphs:
 #
 #
 #  download-metadata:
-#    - type: FileExistsNode
+#    - type: FileExists
 #      path: "/srv/archive/nhentai/metadata/{{element}@gid}.json"
-#    - type: IfThenElseNode
+#    - type: IfThenElse
 #      condition: "{exists}"
 #      falseTarget: download-metadata-new
 #
 #  download-metadata-new:
-#    - type: RetryNode
+#    - type: Retry
 #      retry: 550
 #      retryTarget: download-metadata-http
 #
 #  download-metadata-http:
-#    - type: HttpRequestNode
+#    - type: HttpRequest
 #      url: "https://nhentai.net/g/{{element}@gid}/"
 #
-#    - type: RegexNode
+#    - type: Regex
 #      content: "{response}"
 #      collect: true
 #      regex: N\.gallery\((.*?)\);
 #      groups:
 #        json: 1
 #
-#    - type: MapNode
+#    - type: Map
 #      list: "{output}"
 #      mapTarget: clean-metadata
 #      service: io
@@ -110,11 +110,11 @@ graphs:
 #  # Removes personal and image related metadata. Removes for every tag the
 #  # url, count, and id
 #  clean-metadata:
-#    - type: JsonStringToObjectNode
+#    - type: JsonStringToObject
 #      jsonString: "{{element}@json}"
 #      jsonObject: "json"
 #
-#    - type: CleanJsonObjectNode
+#    - type: CleanJsonObject
 #      jsonObject: "{json}"
 #      cleanedObject: "json"
 #      clean:
@@ -124,11 +124,11 @@ graphs:
 #        - "\\[\\]tags|count"
 #        - "\\[\\]tags|id"
 #
-#    - type: ObjectToJsonStringNode
+#    - type: ObjectToJsonString
 #      object: "{json}"
 #      result: "json"
 #
-#    - type: WriteLineToFileNode
+#    - type: WriteLineToFile
 #      output: "/srv/archive/nhentai/metadata/{gid}.json"
 #      line: "{json}"
 #      overwrite: true
