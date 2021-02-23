@@ -9,8 +9,6 @@ import scraper.api.node.type.FunctionalNode;
 import scraper.api.template.L;
 import scraper.api.template.T;
 
-import java.util.Optional;
-
 /**
  * Can modify the current flow map.
  * Can be used to construct a subset of user defined JSON objects.
@@ -37,6 +35,6 @@ public class Echo <A> implements FunctionalNode {
 
     @Override
     public void modify(@NotNull FunctionalNodeContainer n, @NotNull final FlowMap o) {
-        o.output(put, o.eval(value));
+        o.evalMaybe(value).ifPresent(v -> o.output(put, o.eval(value)));
     }
 }
