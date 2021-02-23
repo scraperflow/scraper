@@ -22,10 +22,9 @@ import java.util.Optional;
  *value:
  *  name: "{username}"
  *  age: "{userage}"
- *  attributes: ["user", "{customattribute}"]
  * </pre>
  */
-@NodePlugin("2.0.1")
+@NodePlugin("2.0.2")
 public class Echo <A> implements FunctionalNode {
 
     /** Element to output */
@@ -38,7 +37,6 @@ public class Echo <A> implements FunctionalNode {
 
     @Override
     public void modify(@NotNull FunctionalNodeContainer n, @NotNull final FlowMap o) {
-        Optional<A> value = o.evalMaybe(this.value);
-        value.ifPresent(v -> o.output(put, v));
+        o.output(put, o.eval(value));
     }
 }
