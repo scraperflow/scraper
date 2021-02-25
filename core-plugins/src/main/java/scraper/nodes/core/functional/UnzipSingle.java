@@ -17,7 +17,7 @@ public class UnzipSingle<A,B> implements FunctionalNode {
 
     /** zipped list */
     @FlowKey(mandatory = true)
-    private final T<Zip<A,B>.Pair> pair = new T<>(){};
+    private final T<ZipList<A,B>.Pair> pair = new T<>(){};
 
     /** unzip list 1 */
     @FlowKey(mandatory = true)
@@ -30,7 +30,7 @@ public class UnzipSingle<A,B> implements FunctionalNode {
 
     @Override
     public void modify(@NotNull FunctionalNodeContainer n, @NotNull final FlowMap o) {
-        Zip<A,B>.Pair zipped = o.eval(this.pair);
+        ZipList<A,B>.Pair zipped = o.eval(this.pair);
 
         o.output(this.l1, zipped.fst);
         o.output(this.l2, zipped.snd);

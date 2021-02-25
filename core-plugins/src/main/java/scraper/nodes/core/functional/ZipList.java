@@ -16,7 +16,7 @@ import java.util.List;
  * Zips two lists, shortest length
  */
 @NodePlugin("0.0.1")
-public class Zip<A,B> implements FunctionalNode {
+public class ZipList<A,B> implements FunctionalNode {
 
     /** list 1 */
     @FlowKey(mandatory = true)
