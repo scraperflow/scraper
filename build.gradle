@@ -52,5 +52,10 @@ distributions.main {
 def homePath = System.properties['user.home']
 installDist.destinationDir = new File(homePath, "opt/lib/scraper")
 
+
+application {
+    mainClass = 'scraper.app.Scraper'
+}
+
 // merge coverage
 apply from: 'gradle/jacoco-merge.gradle'
